@@ -20,16 +20,16 @@ const ProductListScreen = () => {
     console.log('delete', id);
   };
 
-	const createProductHandler = () => {
-		if (window.confirm('Are you sure you want to create a new product ?')) {
-			try {
-				await createProduct();
-				refetch()
-			} catch (err) {
-				toast.error(err?.data?.message || err.error)
-			}
-		}
-	}
+  const createProductHandler = async () => {
+    if (window.confirm('Are you sure you want to create a new product ?')) {
+      try {
+        await createProduct();
+        refetch();
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
+      }
+    }
+  };
 
   return (
     <>
@@ -44,7 +44,7 @@ const ProductListScreen = () => {
         </Col>
       </Row>
 
-			{ loadingCreate && <Loader /> }
+      {loadingCreate && <Loader />}
       {isLoading ? (
         <Loader />
       ) : error ? (
