@@ -216,21 +216,13 @@ const OrderScreen = () => {
                     <Loader />
                   ) : (
                     <div>
-                      {/* <Button
-                        onClick={onApproveTest}
-                        style={{ marginBottom: '15px' }}
-                      >
-                        Test Pay Order
-                      </Button> */}
-                      <div>
-                        <PayPalScriptProvider options={initialOptions}>
-                          <PayPalButtons
-                            createOrder={createOrder}
-                            onApprove={onApprove}
-                            onError={onError}
-                          ></PayPalButtons>
-                        </PayPalScriptProvider>
-                      </div>
+                      <PayPalScriptProvider options={initialOptions}>
+                        <PayPalButtons
+                          createOrder={createOrder}
+                          onApprove={onApprove}
+                          onError={onError}
+                        ></PayPalButtons>
+                      </PayPalScriptProvider>
                     </div>
                   )}
                 </ListGroup.Item>

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Row, Form, Col, ListGroup, Card, Button } from 'react-bootstrap';
 import Rating from '../components/Rating';
+import Meta from '../components/Meta.jsx';
 // import axios from 'axios';
 import { Image } from 'react-bootstrap';
 import { toast } from 'react-toastify';
@@ -81,6 +82,7 @@ const ProductScreen = () => {
         <Message variant="danger">{error?.data?.mesage || error.error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />

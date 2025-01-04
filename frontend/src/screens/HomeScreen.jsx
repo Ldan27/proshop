@@ -3,11 +3,12 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import Product from '../components/Product';
-import { useGetProductsQuery } from '../slices/productsApiSlice';
 // import axios from 'axios';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Paginate from '../components/Paginate';
+import ProductCarousel from '../components/ProductCarousel';
+import { useGetProductsQuery } from '../slices/productsApiSlice';
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();
@@ -27,7 +28,9 @@ const HomeScreen = () => {
 
   return (
     <>
-      {keyword && (
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
         <Link to="/" className="btn btn-light mb-4">
           Go Back
         </Link>
