@@ -10,7 +10,7 @@ import Message from '../components/Message';
 import Paginate from '../components/Paginate';
 
 const HomeScreen = () => {
-  const { pageNumber } = useParams();
+  const { pageNumber, keyword } = useParams();
   // useEffect(() => {
   //   const fetchProducts = async () => {
   //     const { data } = await axios.get('/api/products');
@@ -20,7 +20,10 @@ const HomeScreen = () => {
   //   fetchProducts();
   // }, []);
 
-  const { data, isLoading, error } = useGetProductsQuery({ pageNumber });
+  const { data, isLoading, error } = useGetProductsQuery({
+    keyword,
+    pageNumber,
+  });
 
   return (
     <>
@@ -38,7 +41,11 @@ const HomeScreen = () => {
               </Col>
             ))}
           </Row>
-          <Paginate pages={data.pages} page={data.page} />
+          <Paginate
+            pages={data.pages}
+            page={data.page}
+            keyword={keyword ? keyword : ''}
+          />
         </>
       )}
     </>
