@@ -35,7 +35,6 @@ const __dirname = path.resolve(); // Set __dirname to current directory
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 if (process.env.NODE_ENV === 'production') {
-  console.log(`hi you're good!!!`);
   // set static folder
   app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
